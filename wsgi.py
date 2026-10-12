@@ -216,15 +216,19 @@ class OnlineHandler(core.Handler):
         self.response = (status, list(headers.items()), data)
 
     def guard(self, write=False):
-        host = self.headers.get('Host', '').lower()
-        if host not in CONFIG.hosts:
+        raw_host = (self.headers.get('X-Forwarded-Host') or self.headers.get('Host', '')).lower()
+        host = raw_host.split(':')[0]
+        allowed_hosts = {h.split(':')[0] for h in CONFIG.hosts} | CONFIG.hosts
+        if host not in allowed_hosts and raw_host not in allowed_hosts:
             raise core.APIError(core.M['forbidden'], 403)
         if not self.secure and not (CONFIG.allow_http and ('http://' + host) in CONFIG.origins):
             raise core.APIError('HTTPS is required.', 426)
         origin = self.headers.get('Origin')
         if origin and origin not in CONFIG.origins:
             raise core.APIError(core.M['forbidden'], 403)
-        if self.headers.get('Sec-Fetch-Site') == 'cross-site':
+        sec_fetch_site = self.headers.get('Sec-Fetch-Site')
+        sec_fetch_mode = self.headers.get('Sec-Fetch-Mode')
+        if sec_fetch_site == 'cross-site' and (write or sec_fetch_mode != 'navigate'):
             raise core.APIError(core.M['forbidden'], 403)
         if write:
             if (self.headers.get('X-LAI-Client') != 'online'

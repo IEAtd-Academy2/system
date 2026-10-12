@@ -1,0 +1,13 @@
+{
+    email {$ACME_EMAIL}
+}
+{$LAI_DOMAIN} {
+    request_body {
+        max_size 46MB
+    }
+    encode zstd gzip
+    reverse_proxy app:10000 {
+        header_up X-Forwarded-Proto {scheme}
+        header_up X-LAI-Client-IP {remote_host}
+    }
+}

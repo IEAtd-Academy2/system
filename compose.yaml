@@ -1,0 +1,58 @@
+services:
+  permissions:
+    image: alpine:3.22
+    user: '0:0'
+    command: [sh, -c, 'chown -R 10001:10001 /var/lib/lai && chmod 700 /var/lib/lai']
+    volumes:
+      - lai_data:/var/lib/lai
+    restart: 'no'
+  app:
+    build: .
+    restart: unless-stopped
+    init: true
+    env_file: .env
+    environment:
+      LAI_DATA_DIR: /var/lib/lai
+      LAI_PUBLIC_URL: https://${LAI_DOMAIN:?Run configure.py first}
+      LAI_CLIENT_IP_HEADER: X-LAI-Client-IP
+      FORWARDED_ALLOW_IPS: '*'
+      PORT: '10000'
+    volumes:
+      - lai_data:/var/lib/lai
+    expose:
+      - '10000'
+    # No host ports: the gateway cannot be reached around the HTTPS proxy.
+    depends_on:
+      permissions:
+        condition: service_completed_successfully
+    read_only: true
+    tmpfs:
+      - /tmp:size=128m,mode=1777
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:10000/healthz', timeout=5)"]
+      interval: 30s
+      timeout: 8s
+      retries: 3
+      start_period: 30s
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    environment:
+      LAI_DOMAIN: ${LAI_DOMAIN:?Run configure.py first}
+      ACME_EMAIL: ${ACME_EMAIL:?Run configure.py first}
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      app:
+        condition: service_healthy
+volumes:
+  lai_data:
+  caddy_data:
+  caddy_config:

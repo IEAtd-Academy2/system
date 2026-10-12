@@ -1,0 +1,2 @@
+1.1.0-online
+Preserves the local v1 schema. Production WSGI gateway, HTTPS deployment and protected first-run setup.

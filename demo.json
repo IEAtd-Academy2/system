@@ -1,0 +1,988 @@
+{
+  "users": {
+    "sales": {
+      "name": "مسؤول المبيعات (تجريبي)",
+      "username": "demo-sales",
+      "role": "manager",
+      "dept": "sales",
+      "title": "مسؤول السيلز"
+    },
+    "service": {
+      "name": "منسق الخدمة (تجريبي)",
+      "username": "demo-service",
+      "role": "employee",
+      "dept": "service",
+      "title": "خدمة العملاء"
+    },
+    "media": {
+      "name": "مسؤول المحتوى (تجريبي)",
+      "username": "demo-media",
+      "role": "manager",
+      "dept": "media",
+      "title": "السوشيال والتصميمات"
+    },
+    "ops": {
+      "name": "منسق التشغيل (تجريبي)",
+      "username": "demo-ops",
+      "role": "manager",
+      "dept": "admin",
+      "title": "الإدارة والموارد البشرية"
+    },
+    "trainer": {
+      "name": "مدرب المجموعة (تجريبي)",
+      "username": "demo-trainer",
+      "role": "trainer",
+      "dept": "admin",
+      "title": "مدرب"
+    }
+  },
+  "records": [
+    {
+      "kind": "courses",
+      "title": "BLS · مجموعة مكة — مثال",
+      "dept": "admin",
+      "owner_id": "ops",
+      "status": "ready",
+      "data": {
+        "code": "BLS",
+        "batch": "DEMO-101",
+        "city": "مكة",
+        "location": "قاعة تدريب توضيحية",
+        "trainer_id": "trainer",
+        "capacity": 20,
+        "price": 19600,
+        "trainer_rate": 4500,
+        "marketing_pct": 5,
+        "trainer_confirmed": true,
+        "venue_ready": true,
+        "tools_ready": true,
+        "notes": "مجموعة توضيحية وليست موعدًا معلنًا."
+      },
+      "_days": 2,
+      "_ref": "bls"
+    },
+    {
+      "kind": "courses",
+      "title": "ACLS · مجموعة جدة — مثال",
+      "dept": "admin",
+      "owner_id": "ops",
+      "status": "planned",
+      "data": {
+        "code": "ACLS",
+        "batch": "DEMO-102",
+        "city": "جدة",
+        "location": "قاعة تدريب توضيحية",
+        "trainer_id": "trainer",
+        "capacity": 12,
+        "price": 49600,
+        "trainer_rate": 11000,
+        "marketing_pct": 5,
+        "trainer_confirmed": true,
+        "venue_ready": false,
+        "tools_ready": true
+      },
+      "_days": 5,
+      "_ref": "acls"
+    },
+    {
+      "kind": "courses",
+      "title": "تدريب المدربين · مجموعة تطوير — مثال",
+      "dept": "admin",
+      "owner_id": "ops",
+      "status": "planned",
+      "data": {
+        "code": "TOT",
+        "batch": "DEMO-103",
+        "city": "تدريب عن بُعد",
+        "location": "منصة تدريب توضيحية",
+        "trainer_id": "trainer",
+        "capacity": 30,
+        "price": 30000,
+        "trainer_rate": 6000,
+        "marketing_pct": 0,
+        "trainer_confirmed": false,
+        "venue_ready": false,
+        "tools_ready": false
+      },
+      "_days": 9,
+      "_ref": "tot"
+    },
+    {
+      "kind": "enrollments",
+      "title": "متدرب توضيحي 01",
+      "dept": "service",
+      "owner_id": "service",
+      "status": "confirmed",
+      "data": {
+        "course_id": "bls",
+        "phone": "",
+        "fee": 19600,
+        "attendance": "present",
+        "result": "passed",
+        "certificate": "pending"
+      },
+      "_ref": "en1"
+    },
+    {
+      "kind": "payments",
+      "title": "تحصيل توضيحي للتسجيل 01",
+      "dept": "admin",
+      "owner_id": "ops",
+      "status": "verified",
+      "data": {
+        "course_id": "bls",
+        "enrollment_id": "en1",
+        "type": "receipt",
+        "amount": 19600,
+        "category": "training",
+        "method": "bank",
+        "reference": "DEMO-PAY-01"
+      },
+      "_days": 0,
+      "_ref": "pay1"
+    },
+    {
+      "kind": "enrollments",
+      "title": "متدرب توضيحي 02",
+      "dept": "service",
+      "owner_id": "service",
+      "status": "confirmed",
+      "data": {
+        "course_id": "bls",
+        "phone": "",
+        "fee": 19600,
+        "attendance": "present",
+        "result": "passed",
+        "certificate": "pending"
+      },
+      "_ref": "en2"
+    },
+    {
+      "kind": "payments",
+      "title": "تحصيل توضيحي للتسجيل 02",
+      "dept": "admin",
+      "owner_id": "ops",
+      "status": "verified",
+      "data": {
+        "course_id": "bls",
+        "enrollment_id": "en2",
+        "type": "receipt",
+        "amount": 19600,
+        "category": "training",
+        "method": "bank",
+        "reference": "DEMO-PAY-02"
+      },
+      "_days": 0,
+      "_ref": "pay2"
+    },
+    {
+      "kind": "enrollments",
+      "title": "متدرب توضيحي 03",
+      "dept": "service",
+      "owner_id": "service",
+      "status": "confirmed",
+      "data": {
+        "course_id": "bls",
+        "phone": "",
+        "fee": 19600,
+        "attendance": "present",
+        "result": "passed",
+        "certificate": "pending"
+      },
+      "_ref": "en3"
+    },
+    {
+      "kind": "payments",
+      "title": "تحصيل توضيحي للتسجيل 03",
+      "dept": "admin",
+      "owner_id": "ops",
+      "status": "verified",
+      "data": {
+        "course_id": "bls",
+        "enrollment_id": "en3",
+        "type": "receipt",
+        "amount": 19600,
+        "category": "training",
+        "method": "bank",
+        "reference": "DEMO-PAY-03"
+      },
+      "_days": 0,
+      "_ref": "pay3"
+    },
+    {
+      "kind": "enrollments",
+      "title": "متدرب توضيحي 04",
+      "dept": "service",
+      "owner_id": "service",
+      "status": "confirmed",
+      "data": {
+        "course_id": "bls",
+        "phone": "",
+        "fee": 19600,
+        "attendance": "present",
+        "result": "passed",
+        "certificate": "pending"
+      },
+      "_ref": "en4"
+    },
+    {
+      "kind": "payments",
+      "title": "تحصيل توضيحي للتسجيل 04",
+      "dept": "admin",
+      "owner_id": "ops",
+      "status": "verified",
+      "data": {
+        "course_id": "bls",
+        "enrollment_id": "en4",
+        "type": "receipt",
+        "amount": 19600,
+        "category": "training",
+        "method": "bank",
+        "reference": "DEMO-PAY-04"
+      },
+      "_days": 0,
+      "_ref": "pay4"
+    },
+    {
+      "kind": "enrollments",
+      "title": "متدرب توضيحي 05",
+      "dept": "service",
+      "owner_id": "service",
+      "status": "confirmed",
+      "data": {
+        "course_id": "bls",
+        "phone": "",
+        "fee": 19600,
+        "attendance": "pending",
+        "result": "pending",
+        "certificate": "pending"
+      },
+      "_ref": "en5"
+    },
+    {
+      "kind": "payments",
+      "title": "تحصيل توضيحي للتسجيل 05",
+      "dept": "admin",
+      "owner_id": "ops",
+      "status": "verified",
+      "data": {
+        "course_id": "bls",
+        "enrollment_id": "en5",
+        "type": "receipt",
+        "amount": 19600,
+        "category": "training",
+        "method": "bank",
+        "reference": "DEMO-PAY-05"
+      },
+      "_days": 0,
+      "_ref": "pay5"
+    },
+    {
+      "kind": "enrollments",
+      "title": "متدرب توضيحي 06",
+      "dept": "service",
+      "owner_id": "service",
+      "status": "confirmed",
+      "data": {
+        "course_id": "bls",
+        "phone": "",
+        "fee": 19600,
+        "attendance": "pending",
+        "result": "pending",
+        "certificate": "pending"
+      },
+      "_ref": "en6"
+    },
+    {
+      "kind": "payments",
+      "title": "تحصيل توضيحي للتسجيل 06",
+      "dept": "admin",
+      "owner_id": "ops",
+      "status": "verified",
+      "data": {
+        "course_id": "bls",
+        "enrollment_id": "en6",
+        "type": "receipt",
+        "amount": 19600,
+        "category": "training",
+        "method": "bank",
+        "reference": "DEMO-PAY-06"
+      },
+      "_days": 0,
+      "_ref": "pay6"
+    },
+    {
+      "kind": "payments",
+      "title": "مصروف أدوات توضيحي",
+      "dept": "admin",
+      "owner_id": "ops",
+      "status": "verified",
+      "data": {
+        "course_id": "bls",
+        "type": "expense",
+        "amount": 15000,
+        "category": "tools",
+        "method": "bank",
+        "reference": "DEMO-EXP-01"
+      },
+      "_days": 0
+    },
+    {
+      "kind": "payments",
+      "title": "دفعة أجر مدرب توضيحية",
+      "dept": "admin",
+      "owner_id": "ops",
+      "status": "verified",
+      "data": {
+        "course_id": "bls",
+        "type": "expense",
+        "amount": 9000,
+        "category": "trainer",
+        "method": "bank",
+        "reference": "DEMO-EXP-02"
+      },
+      "_days": 0
+    },
+    {
+      "kind": "tasks",
+      "title": "متابعة العملاء المهتمين بمجموعة BLS",
+      "dept": "sales",
+      "owner_id": "sales",
+      "status": "doing",
+      "data": {
+        "description": "مهمة تشغيلية توضيحية لتجربة النظام، وليست تكليفًا فعليًا.",
+        "priority": "high",
+        "acceptance": "اكتمال القائمة ومراجعة البيانات وتوثيق أي حالة معلقة.",
+        "progress": 60,
+        "repeat_days": 0,
+        "checklist": [
+          {
+            "text": "مراجعة البيانات المطلوبة",
+            "done": true
+          },
+          {
+            "text": "توثيق النتيجة والإثبات",
+            "done": false
+          }
+        ]
+      },
+      "_days": 0
+    },
+    {
+      "kind": "tasks",
+      "title": "توثيق أسباب فقد فرص الأسبوع",
+      "dept": "sales",
+      "owner_id": "sales",
+      "status": "review",
+      "data": {
+        "description": "مهمة تشغيلية توضيحية لتجربة النظام، وليست تكليفًا فعليًا.",
+        "priority": "high",
+        "acceptance": "اكتمال القائمة ومراجعة البيانات وتوثيق أي حالة معلقة.",
+        "progress": 100,
+        "repeat_days": 0,
+        "checklist": [
+          {
+            "text": "مراجعة البيانات المطلوبة",
+            "done": true
+          },
+          {
+            "text": "توثيق النتيجة والإثبات",
+            "done": true
+          }
+        ],
+        "result": "اكتملت المراجعة في المثال التوضيحي.",
+        "evidence": "مرجع توضيحي DEMO؛ أضف المستند الحقيقي عند التشغيل."
+      },
+      "_days": -1
+    },
+    {
+      "kind": "tasks",
+      "title": "إقفال سجل العروض المعتمدة",
+      "dept": "sales",
+      "owner_id": "sales",
+      "status": "done",
+      "data": {
+        "description": "مهمة تشغيلية توضيحية لتجربة النظام، وليست تكليفًا فعليًا.",
+        "priority": "normal",
+        "acceptance": "اكتمال القائمة ومراجعة البيانات وتوثيق أي حالة معلقة.",
+        "progress": 100,
+        "repeat_days": 0,
+        "checklist": [
+          {
+            "text": "مراجعة البيانات المطلوبة",
+            "done": true
+          },
+          {
+            "text": "توثيق النتيجة والإثبات",
+            "done": true
+          }
+        ],
+        "result": "اكتملت المراجعة في المثال التوضيحي.",
+        "evidence": "مرجع توضيحي DEMO؛ أضف المستند الحقيقي عند التشغيل."
+      },
+      "_days": -3
+    },
+    {
+      "kind": "tasks",
+      "title": "تأكيد حضور المسجلين للمجموعة القادمة",
+      "dept": "service",
+      "owner_id": "service",
+      "status": "doing",
+      "data": {
+        "description": "مهمة تشغيلية توضيحية لتجربة النظام، وليست تكليفًا فعليًا.",
+        "priority": "high",
+        "acceptance": "اكتمال القائمة ومراجعة البيانات وتوثيق أي حالة معلقة.",
+        "progress": 50,
+        "repeat_days": 0,
+        "checklist": [
+          {
+            "text": "مراجعة البيانات المطلوبة",
+            "done": true
+          },
+          {
+            "text": "توثيق النتيجة والإثبات",
+            "done": false
+          }
+        ]
+      },
+      "_days": 1
+    },
+    {
+      "kind": "tasks",
+      "title": "استكمال بيانات التسجيل الناقصة",
+      "dept": "service",
+      "owner_id": "service",
+      "status": "waiting",
+      "data": {
+        "description": "مهمة تشغيلية توضيحية لتجربة النظام، وليست تكليفًا فعليًا.",
+        "priority": "urgent",
+        "acceptance": "اكتمال القائمة ومراجعة البيانات وتوثيق أي حالة معلقة.",
+        "progress": 30,
+        "repeat_days": 0,
+        "checklist": [
+          {
+            "text": "مراجعة البيانات المطلوبة",
+            "done": false
+          },
+          {
+            "text": "توثيق النتيجة والإثبات",
+            "done": false
+          }
+        ]
+      },
+      "_days": -1
+    },
+    {
+      "kind": "tasks",
+      "title": "تسليم الشهادات الجاهزة للعملاء",
+      "dept": "service",
+      "owner_id": "service",
+      "status": "review",
+      "data": {
+        "description": "مهمة تشغيلية توضيحية لتجربة النظام، وليست تكليفًا فعليًا.",
+        "priority": "normal",
+        "acceptance": "اكتمال القائمة ومراجعة البيانات وتوثيق أي حالة معلقة.",
+        "progress": 100,
+        "repeat_days": 0,
+        "checklist": [
+          {
+            "text": "مراجعة البيانات المطلوبة",
+            "done": true
+          },
+          {
+            "text": "توثيق النتيجة والإثبات",
+            "done": true
+          }
+        ],
+        "result": "اكتملت المراجعة في المثال التوضيحي.",
+        "evidence": "مرجع توضيحي DEMO؛ أضف المستند الحقيقي عند التشغيل."
+      },
+      "_days": 0
+    },
+    {
+      "kind": "tasks",
+      "title": "تجهيز تصميم برنامج تدريب المدربين",
+      "dept": "media",
+      "owner_id": "media",
+      "status": "doing",
+      "data": {
+        "description": "مهمة تشغيلية توضيحية لتجربة النظام، وليست تكليفًا فعليًا.",
+        "priority": "normal",
+        "acceptance": "اكتمال القائمة ومراجعة البيانات وتوثيق أي حالة معلقة.",
+        "progress": 70,
+        "repeat_days": 0,
+        "checklist": [
+          {
+            "text": "مراجعة البيانات المطلوبة",
+            "done": true
+          },
+          {
+            "text": "توثيق النتيجة والإثبات",
+            "done": false
+          }
+        ]
+      },
+      "_days": 2
+    },
+    {
+      "kind": "tasks",
+      "title": "اعتماد محتوى حملة الدورات القادمة",
+      "dept": "media",
+      "owner_id": "media",
+      "status": "review",
+      "data": {
+        "description": "مهمة تشغيلية توضيحية لتجربة النظام، وليست تكليفًا فعليًا.",
+        "priority": "high",
+        "acceptance": "اكتمال القائمة ومراجعة البيانات وتوثيق أي حالة معلقة.",
+        "progress": 100,
+        "repeat_days": 0,
+        "checklist": [
+          {
+            "text": "مراجعة البيانات المطلوبة",
+            "done": true
+          },
+          {
+            "text": "توثيق النتيجة والإثبات",
+            "done": true
+          }
+        ],
+        "result": "اكتملت المراجعة في المثال التوضيحي.",
+        "evidence": "مرجع توضيحي DEMO؛ أضف المستند الحقيقي عند التشغيل."
+      },
+      "_days": -2
+    },
+    {
+      "kind": "tasks",
+      "title": "تحديث روابط التسجيل في القنوات",
+      "dept": "media",
+      "owner_id": "media",
+      "status": "done",
+      "data": {
+        "description": "مهمة تشغيلية توضيحية لتجربة النظام، وليست تكليفًا فعليًا.",
+        "priority": "normal",
+        "acceptance": "اكتمال القائمة ومراجعة البيانات وتوثيق أي حالة معلقة.",
+        "progress": 100,
+        "repeat_days": 0,
+        "checklist": [
+          {
+            "text": "مراجعة البيانات المطلوبة",
+            "done": true
+          },
+          {
+            "text": "توثيق النتيجة والإثبات",
+            "done": true
+          }
+        ],
+        "result": "اكتملت المراجعة في المثال التوضيحي.",
+        "evidence": "مرجع توضيحي DEMO؛ أضف المستند الحقيقي عند التشغيل."
+      },
+      "_days": -3
+    },
+    {
+      "kind": "tasks",
+      "title": "تجهيز قاعة وأدوات مجموعة BLS",
+      "dept": "admin",
+      "owner_id": "ops",
+      "status": "done",
+      "data": {
+        "description": "مهمة تشغيلية توضيحية لتجربة النظام، وليست تكليفًا فعليًا.",
+        "priority": "high",
+        "acceptance": "اكتمال القائمة ومراجعة البيانات وتوثيق أي حالة معلقة.",
+        "progress": 100,
+        "repeat_days": 0,
+        "checklist": [
+          {
+            "text": "مراجعة البيانات المطلوبة",
+            "done": true
+          },
+          {
+            "text": "توثيق النتيجة والإثبات",
+            "done": true
+          }
+        ],
+        "result": "اكتملت المراجعة في المثال التوضيحي.",
+        "evidence": "مرجع توضيحي DEMO؛ أضف المستند الحقيقي عند التشغيل."
+      },
+      "_days": -1
+    },
+    {
+      "kind": "tasks",
+      "title": "تأكيد توفر مدرب مجموعة ACLS",
+      "dept": "admin",
+      "owner_id": "ops",
+      "status": "doing",
+      "data": {
+        "description": "مهمة تشغيلية توضيحية لتجربة النظام، وليست تكليفًا فعليًا.",
+        "priority": "high",
+        "acceptance": "اكتمال القائمة ومراجعة البيانات وتوثيق أي حالة معلقة.",
+        "progress": 80,
+        "repeat_days": 0,
+        "checklist": [
+          {
+            "text": "مراجعة البيانات المطلوبة",
+            "done": true
+          },
+          {
+            "text": "توثيق النتيجة والإثبات",
+            "done": false
+          }
+        ]
+      },
+      "_days": 1
+    },
+    {
+      "kind": "tasks",
+      "title": "مراجعة المستحقات قبل إغلاق المجموعة",
+      "dept": "admin",
+      "owner_id": "ops",
+      "status": "new",
+      "data": {
+        "description": "مهمة تشغيلية توضيحية لتجربة النظام، وليست تكليفًا فعليًا.",
+        "priority": "normal",
+        "acceptance": "اكتمال القائمة ومراجعة البيانات وتوثيق أي حالة معلقة.",
+        "progress": 0,
+        "repeat_days": 0,
+        "checklist": [
+          {
+            "text": "مراجعة البيانات المطلوبة",
+            "done": false
+          },
+          {
+            "text": "توثيق النتيجة والإثبات",
+            "done": false
+          }
+        ]
+      },
+      "_days": 3
+    },
+    {
+      "kind": "tasks",
+      "title": "مراجعة كشف الحضور الأسبوعي",
+      "dept": "admin",
+      "owner_id": "ops",
+      "status": "done",
+      "data": {
+        "description": "مهمة تشغيلية توضيحية لتجربة النظام، وليست تكليفًا فعليًا.",
+        "priority": "normal",
+        "acceptance": "اكتمال القائمة ومراجعة البيانات وتوثيق أي حالة معلقة.",
+        "progress": 100,
+        "repeat_days": 0,
+        "checklist": [
+          {
+            "text": "مراجعة البيانات المطلوبة",
+            "done": true
+          },
+          {
+            "text": "توثيق النتيجة والإثبات",
+            "done": true
+          }
+        ],
+        "result": "اكتملت المراجعة في المثال التوضيحي.",
+        "evidence": "مرجع توضيحي DEMO؛ أضف المستند الحقيقي عند التشغيل."
+      },
+      "_days": -2
+    },
+    {
+      "kind": "tasks",
+      "title": "تسليم العملاء المكتسبين لخدمة العملاء",
+      "dept": "sales",
+      "owner_id": "sales",
+      "status": "done",
+      "data": {
+        "description": "مهمة تشغيلية توضيحية لتجربة النظام، وليست تكليفًا فعليًا.",
+        "priority": "normal",
+        "acceptance": "اكتمال القائمة ومراجعة البيانات وتوثيق أي حالة معلقة.",
+        "progress": 100,
+        "repeat_days": 0,
+        "checklist": [
+          {
+            "text": "مراجعة البيانات المطلوبة",
+            "done": true
+          },
+          {
+            "text": "توثيق النتيجة والإثبات",
+            "done": true
+          }
+        ],
+        "result": "اكتملت المراجعة في المثال التوضيحي.",
+        "evidence": "مرجع توضيحي DEMO؛ أضف المستند الحقيقي عند التشغيل."
+      },
+      "_days": -2
+    },
+    {
+      "kind": "tasks",
+      "title": "مراجعة قياسات أداء المحتوى",
+      "dept": "media",
+      "owner_id": "media",
+      "status": "done",
+      "data": {
+        "description": "مهمة تشغيلية توضيحية لتجربة النظام، وليست تكليفًا فعليًا.",
+        "priority": "normal",
+        "acceptance": "اكتمال القائمة ومراجعة البيانات وتوثيق أي حالة معلقة.",
+        "progress": 100,
+        "repeat_days": 0,
+        "checklist": [
+          {
+            "text": "مراجعة البيانات المطلوبة",
+            "done": true
+          },
+          {
+            "text": "توثيق النتيجة والإثبات",
+            "done": true
+          }
+        ],
+        "result": "اكتملت المراجعة في المثال التوضيحي.",
+        "evidence": "مرجع توضيحي DEMO؛ أضف المستند الحقيقي عند التشغيل."
+      },
+      "_days": -2
+    },
+    {
+      "kind": "tasks",
+      "title": "مطابقة بيانات الشهادات مع الأسماء",
+      "dept": "service",
+      "owner_id": "service",
+      "status": "new",
+      "data": {
+        "description": "مهمة تشغيلية توضيحية لتجربة النظام، وليست تكليفًا فعليًا.",
+        "priority": "normal",
+        "acceptance": "اكتمال القائمة ومراجعة البيانات وتوثيق أي حالة معلقة.",
+        "progress": 0,
+        "repeat_days": 0,
+        "checklist": [
+          {
+            "text": "مراجعة البيانات المطلوبة",
+            "done": false
+          },
+          {
+            "text": "توثيق النتيجة والإثبات",
+            "done": false
+          }
+        ]
+      },
+      "_days": 2
+    },
+    {
+      "kind": "goals",
+      "title": "الحجوزات المؤكدة",
+      "dept": "sales",
+      "owner_id": "sales",
+      "status": "active",
+      "data": {
+        "metric": "مؤشر توضيحي لعرض آلية قياس النتائج.",
+        "period": "",
+        "target": 20,
+        "actual": 12,
+        "unit": "حجز",
+        "direction": "up",
+        "evidence": "أرقام توضيحية للتجربة وليست نتائج المعهد."
+      }
+    },
+    {
+      "kind": "goals",
+      "title": "اكتمال التسجيل قبل الدورة",
+      "dept": "service",
+      "owner_id": "service",
+      "status": "active",
+      "data": {
+        "metric": "مؤشر توضيحي لعرض آلية قياس النتائج.",
+        "period": "",
+        "target": 100,
+        "actual": 85,
+        "unit": "%",
+        "direction": "up",
+        "evidence": "أرقام توضيحية للتجربة وليست نتائج المعهد."
+      }
+    },
+    {
+      "kind": "goals",
+      "title": "المحتوى المعتمد المنشور",
+      "dept": "media",
+      "owner_id": "media",
+      "status": "active",
+      "data": {
+        "metric": "مؤشر توضيحي لعرض آلية قياس النتائج.",
+        "period": "",
+        "target": 12,
+        "actual": 9,
+        "unit": "قطعة",
+        "direction": "up",
+        "evidence": "أرقام توضيحية للتجربة وليست نتائج المعهد."
+      }
+    },
+    {
+      "kind": "goals",
+      "title": "جاهزية الدورات قبل الموعد",
+      "dept": "admin",
+      "owner_id": "ops",
+      "status": "active",
+      "data": {
+        "metric": "مؤشر توضيحي لعرض آلية قياس النتائج.",
+        "period": "",
+        "target": 100,
+        "actual": 75,
+        "unit": "%",
+        "direction": "up",
+        "evidence": "أرقام توضيحية للتجربة وليست نتائج المعهد."
+      }
+    },
+    {
+      "kind": "leads",
+      "title": "عميل توضيحي 01",
+      "dept": "sales",
+      "owner_id": "sales",
+      "status": "new",
+      "data": {
+        "phone": "",
+        "city": "مكة",
+        "source": "حملة توضيحية",
+        "interest": "دورة BLS",
+        "course_id": "bls",
+        "value": 19600,
+        "next_action": "متابعة الاحتياج وتأكيد الموعد",
+        "loss_reason": "",
+        "notes": "بيانات افتراضية."
+      },
+      "_days": 1
+    },
+    {
+      "kind": "leads",
+      "title": "عميل توضيحي 02",
+      "dept": "sales",
+      "owner_id": "sales",
+      "status": "qualified",
+      "data": {
+        "phone": "",
+        "city": "مكة",
+        "source": "حملة توضيحية",
+        "interest": "دورة BLS",
+        "course_id": "bls",
+        "value": 19600,
+        "next_action": "متابعة الاحتياج وتأكيد الموعد",
+        "loss_reason": "",
+        "notes": "بيانات افتراضية."
+      },
+      "_days": 1
+    },
+    {
+      "kind": "leads",
+      "title": "عميل توضيحي 03",
+      "dept": "sales",
+      "owner_id": "sales",
+      "status": "offered",
+      "data": {
+        "phone": "",
+        "city": "مكة",
+        "source": "حملة توضيحية",
+        "interest": "دورة BLS",
+        "course_id": "bls",
+        "value": 19600,
+        "next_action": "متابعة الاحتياج وتأكيد الموعد",
+        "loss_reason": "",
+        "notes": "بيانات افتراضية."
+      },
+      "_days": 1
+    },
+    {
+      "kind": "leads",
+      "title": "عميل توضيحي 04",
+      "dept": "sales",
+      "owner_id": "sales",
+      "status": "won",
+      "data": {
+        "phone": "",
+        "city": "مكة",
+        "source": "حملة توضيحية",
+        "interest": "دورة BLS",
+        "course_id": "bls",
+        "value": 19600,
+        "next_action": "متابعة الاحتياج وتأكيد الموعد",
+        "loss_reason": "",
+        "notes": "بيانات افتراضية."
+      },
+      "_days": 1
+    },
+    {
+      "kind": "leads",
+      "title": "عميل توضيحي 05",
+      "dept": "sales",
+      "owner_id": "sales",
+      "status": "lost",
+      "data": {
+        "phone": "",
+        "city": "مكة",
+        "source": "حملة توضيحية",
+        "interest": "دورة BLS",
+        "course_id": "bls",
+        "value": 19600,
+        "next_action": "متابعة الاحتياج وتأكيد الموعد",
+        "loss_reason": "تعارض الموعد — مثال",
+        "notes": "بيانات افتراضية."
+      },
+      "_days": 1
+    },
+    {
+      "kind": "tickets",
+      "title": "استكمال تسجيل مجموعة BLS",
+      "dept": "service",
+      "owner_id": "service",
+      "status": "working",
+      "data": {
+        "client_name": "عميل توضيحي",
+        "category": "registration",
+        "priority": "high",
+        "course_id": "bls",
+        "description": "مراجعة بيانات التسجيل وإرسال التعليمات."
+      },
+      "_days": 1
+    },
+    {
+      "kind": "tickets",
+      "title": "متابعة حالة شهادة",
+      "dept": "service",
+      "owner_id": "service",
+      "status": "waiting",
+      "data": {
+        "client_name": "عميل توضيحي آخر",
+        "category": "certificate",
+        "priority": "normal",
+        "description": "طلب توضيحي؛ لا توجد شهادة فعلية مرتبطة."
+      },
+      "_days": 2
+    },
+    {
+      "kind": "content",
+      "title": "منشور توعوي عن الاستعداد للتدريب",
+      "dept": "media",
+      "owner_id": "media",
+      "status": "review",
+      "data": {
+        "platform": "Instagram",
+        "format": "carousel",
+        "campaign": "تقويم المحتوى التجريبي",
+        "brief": "مثال محتوى؛ لا يتضمن إعلان اعتماد أو سعر فعلي.",
+        "caption": "جهّز أسئلتك قبل التدريب، وسجّل ما تريد تطبيقه بعده.",
+        "leads_count": 0,
+        "bookings_count": 0
+      },
+      "_days": 1
+    },
+    {
+      "kind": "content",
+      "title": "تصميم دورة BLS القادمة",
+      "dept": "media",
+      "owner_id": "media",
+      "status": "design",
+      "data": {
+        "platform": "Instagram",
+        "format": "post",
+        "campaign": "حملة توضيحية",
+        "course_id": "bls",
+        "brief": "تستبدل ببيانات الدورة المعتمدة قبل الاستخدام.",
+        "description": "تصميم هادئ باللونين الأخضر والذهبي.",
+        "leads_count": 0,
+        "bookings_count": 0
+      },
+      "_days": 3
+    }
+  ]
+}

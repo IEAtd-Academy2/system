@@ -1,0 +1,15 @@
+.env
+.env.*
+!.env.example
+data/
+*.sqlite
+*.sqlite-*
+*.db
+*.log
+*.key
+*.pem
+__pycache__/
+.pytest_cache/
+.venv/
+node_modules/
+backups/

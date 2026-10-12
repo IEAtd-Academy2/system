@@ -1,0 +1,26 @@
+# Paid service required: never use an ephemeral filesystem for the database.
+# Review hosting-region and privacy requirements before entering real records.
+services:
+  - type: web
+    name: lai-executive
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: sh entrypoint.sh
+    plan: 0.5c-512mb
+    region: frankfurt
+    numInstances: 1
+    healthCheckPath: /healthz
+    autoDeployTrigger: 'off'
+    disk:
+      name: lai-data
+      mountPath: /opt/render/project/src/data
+      sizeGB: 10
+    envVars:
+      - key: LAI_DATA_DIR
+        value: /opt/render/project/src/data
+      - key: LAI_SETUP_TOKEN
+        generateValue: true
+      - key: LAI_TRAINER_SIGNUP
+        value: '0'
+      - key: FORWARDED_ALLOW_IPS
+        value: '*'

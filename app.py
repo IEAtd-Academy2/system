@@ -734,11 +734,16 @@ class Handler(BaseHTTPRequestHandler):
             self.send_json({'error':str(error)},error.code)
         except (json.JSONDecodeError,ValueError,TypeError,KeyError,UnicodeDecodeError) as error:
             self.send_json({'error':M['invalid']},400)
-        except Exception:
-            DATA_DIR.mkdir(parents=True,exist_ok=True)
-            with (DATA_DIR/'errors.log').open('a',encoding='utf-8') as log:
-                log.write('\n'+now()+'\n'+traceback.format_exc())
-            self.send_json({'error':M['server']},500)
+        except Exception as exc:
+            traceback.print_exc()
+            tb_str = traceback.format_exc()
+            try:
+                DATA_DIR.mkdir(parents=True,exist_ok=True)
+                with (DATA_DIR/'errors.log').open('a',encoding='utf-8') as log:
+                    log.write('\n'+now()+'\n'+tb_str)
+            except Exception:
+                pass
+            self.send_json({'error': f'{M["server"]} | التفاصيل: {exc} | {tb_str}'}, 500)
 
     def route(self,db,path,query,body,write):
         if path=='/api/status' and not write:
